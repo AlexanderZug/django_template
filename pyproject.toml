@@ -8,6 +8,8 @@ authors = ["AlexanderZug <alexandertsygankov.unterwegs@gmail.com>"]
 python = "^3.11"
 django = "^5.0.1"
 djangorestframework = "^3.14.0"
+drf-yasg = "^1.21.7"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.1.1"
