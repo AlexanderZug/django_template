@@ -1,17 +1,13 @@
 import os
-
 from dotenv import load_dotenv
 
 from .settings import *
 
 load_dotenv(BASE_DIR.parent.parent / ".env")
 
-INSTALLED_APPS += [
-    "drf_yasg",
-    "rest_framework",
-]
+INSTALLED_APPS += ["drf_yasg", "rest_framework", "drf_spectacular"]
 
-FRONTEND_MODULES = []
+FRONTEND_MODULES = ["api"]
 
 INSTALLED_APPS += FRONTEND_MODULES
 
@@ -21,8 +17,8 @@ MEDIA_URL = "api/media/"
 STATIC_URL = "api/static/"
 STATIC_ROOT = BASE_DIR / "static"
 
-LANGUAGE_CODE = "ru-ru"
-TIME_ZONE = "Europe/Moscow"
+LANGUAGE_CODE = "en"
+TIME_ZONE = "Europe/Berlin"
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "secret_key")
 
@@ -41,16 +37,14 @@ DATABASES = {
 PROJECT_NAME = "Template"
 PROJECT_DESCRIPTION = "Django Template"
 API_INFO = {
-    "TITLE": f"{PROJECT_NAME} API",
-    "DESCRIPTION": f"API for {PROJECT_DESCRIPTION}",
-    "VERSION": "1.0.0",
+    "title": f"{PROJECT_NAME} API",
+    "description": f"API for {PROJECT_DESCRIPTION}",
+    "version": "1.0.0",
 }
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
-        "api.permissions.IsAuthenticationExpired",
-        "api.permissions.CustomDjangoModelPermission",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_AUTHENTICATION_CLASSES": [
