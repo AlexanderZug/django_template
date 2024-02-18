@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django_template"
+name = "app"
 version = "0.1.0"
 description = "Tamplate for django project"
 authors = ["AlexanderZug <alexandertsygankov.unterwegs@gmail.com>"]
