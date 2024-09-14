@@ -16,8 +16,7 @@ help_python:
 	@echo "make venv-reset --------------- Reinstall VENV based on new python-version in Makefile"
 	@echo ""
 	@echo "-------------------- Python: Tests --------------------------------"
-	@echo "make coverage-html ------------ Generate html coverage reports and opens it"
-	@echo "make flake8 ------------------- Run flake8 tests"
+	@echo "make lint --------------------- Run ruff tests"
 	@echo "make mypy --------------------- Run mypy tests"
 	@echo "make test --------------------- Run all tests"
 
@@ -66,18 +65,9 @@ venv-reset: venv-delete venv-install
 #
 # test targets
 #
-coverage-html:
-	@echo "executing target coverage"
-	@pytest -v \
-		--cov-report html:reports/pytest/html \
-		--cov-report term \
-		--cov=. \
-		.
-	@xdg-open reports/pytest/html/index.html
-
-flake8:
-	@echo "executing target flake8"
-	@flake8 ${APPFOLDER}/
+lint:
+	@echo "executing target lint"
+	@ruff check ${APPFOLDER}/
 
 mypy:
 	@echo "executing target mypy"
@@ -87,7 +77,6 @@ mypy:
 test:
 	@echo "executing target test"
 	FAILED=0
-	${MAKE} -s flake8 || FAILED=1
+	${MAKE} -s lint || FAILED=1
 	${MAKE} -s mypy || FAILED=1
-	${MAKE} -s coverage-html || FAILED=1
 	exit  $$FAILED

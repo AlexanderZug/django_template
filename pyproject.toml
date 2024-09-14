@@ -5,7 +5,7 @@ description = "Tamplate for django project"
 authors = ["AlexanderZug <alexandertsygankov.unterwegs@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 django = "^5.0.1"
 djangorestframework = "^3.14.0"
 drf-yasg = "^1.21.7"
@@ -14,9 +14,31 @@ drf-spectacular = "^0.27.1"
 django-grappelli = "^3.0.8"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.1.1"
 pre-commit = "^3.6.0"
+ruff = "^0.6.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+select = [
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "F", # pyflakes
+    "E", # pycodestyle
+    "DJ", # flake8-django
+    "I", # isort
+    "N", # pep8-naming
+    "C4", # flake8-comprehensions
+]
+
+ignore = [
+    "DJ007", # Do not use __all__ with ModelForm, use fields instead
+]
+
+exclude = [
+    "migrations",
+    "app/django_app/settings/*",
+    "app/__init__.py",
+]
