@@ -50,13 +50,13 @@ venv-install:
 	@echo "executing target venv-install"
 	@pyenv install -s ${PYTHON_VERSION}
 	@pyenv virtualenv -f ${PYTHON_VERSION} ${PYTHON_VENV}
-	@test -f .python-version || echo "${PYTHON_VENV}" > .python-version
+	@test -f .python-version || echo "${PYTHON_VERSION}" > .python-version
 	@${MAKE} -s venv-update
-	@source "$$(pyenv prefix)/bin/activate" \
+	@source "$$(pyenv prefix)/envs/${PYTHON_VENV}/bin/activate" \
 		&& ${MAKE} -s sync
 
 venv-update:
-	@"$$(pyenv prefix)/bin/pip" install -q --upgrade \
+	@"$$(pyenv prefix)/envs/${PYTHON_VENV}/bin/pip" install -q --upgrade \
 		pip \
 		setuptools
 
