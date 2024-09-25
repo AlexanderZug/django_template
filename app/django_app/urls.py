@@ -6,7 +6,6 @@ from django.views.static import serve
 from django_app.settings import PROJECT_NAME
 
 urlpatterns = [
-    path("api/grappelli/", include("grappelli.urls")),
     path("api/admin/", admin.site.urls),
     path("api/", include("api.urls")),
 ]
