@@ -44,21 +44,18 @@ venv-setup: venv-install
 
 venv-delete:
 	@echo "executing target venv-delete"
-	@pyenv virtualenv-delete -f ${PYTHON_VENV}
+	@poetry env remove ${PYTHON_VERSION} || poetry env remove $(poetry env info --path)
 
 venv-install:
 	@echo "executing target venv-install"
-	@pyenv install -s ${PYTHON_VERSION}
-	@pyenv virtualenv -f ${PYTHON_VERSION} ${PYTHON_VENV}
-	@test -f .python-version || echo "${PYTHON_VERSION}" > .python-version
-	@${MAKE} -s venv-update
-	@source "$$(pyenv prefix)/envs/${PYTHON_VENV}/bin/activate" \
-		&& ${MAKE} -s sync
+	@poetry env use ${PYTHON_VERSION}  # Устанавливаем нужную версию Python, если она еще не установлена
+	@poetry install                    # Устанавливаем зависимости из poetry.lock или pyproject.toml
+	@poetry shell                      # Активируем виртуальное окружение
+	@${MAKE} -s venv-update            # Продолжаем с другими действиями, если требуется
+	@${MAKE} -s sync
 
 venv-update:
-	@"$$(pyenv prefix)/envs/${PYTHON_VENV}/bin/pip" install -q --upgrade \
-		pip \
-		setuptools
+	@poetry update
 
 venv-reset: venv-delete venv-install
 
