@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 from .settings import *
@@ -22,7 +23,7 @@ TIME_ZONE = "Europe/Berlin"
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "secret_key")
 
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", True)
 ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOSTS", "*")]
 LOCAL_DATABASE = os.environ.get("LOCAL_DATABASE", True)
 
@@ -38,9 +39,7 @@ if LOCAL_DATABASE:
 else:
     DATABASES = {
         "default": {
-            "ENGINE": os.environ.get(
-                "DJANGO_DB_ENGINE", "django.db.backends.postgresql"
-            ),
+            "ENGINE": os.environ.get("DJANGO_DB_ENGINE", "django.db.backends.postgresql"),
             "NAME": os.environ.get("DB_NAME", "postgres"),
             "USER": os.environ.get("DB_USER", "postgres"),
             "PASSWORD": os.environ.get("DB_PASSWORD", "password"),
