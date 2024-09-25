@@ -76,17 +76,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-grappelli"
-version = "3.0.9"
-description = "A jazzy skin for the Django Admin-Interface."
-optional = false
-python-versions = "*"
-files = [
-    { file = "django-grappelli-3.0.9.tar.gz", hash = "sha256:377626f576a331d0ce3317d2f716cfa902c3c15fb87556479d241188330a71d6" },
-    { file = "django_grappelli-3.0.9-py2.py3-none-any.whl", hash = "sha256:4a7c0fef6688e25966912570a6649ff9df78f94016da19d07dfc7b2611ee3689" },
-]
-
-[[package]]
 name = "djangorestframework"
 version = "3.15.2"
 description = "Web APIs for Django, made easy."
@@ -580,4 +569,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4be81f5d8bbf67d3e391f9ad8a849ab022850e974237dcfbe78a771324699bbd"
+content-hash = "2a3cbcfb99abb5d58032793ac64903d05f54a31c1ce522b02453f11150ec5c6c"

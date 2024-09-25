@@ -2,7 +2,7 @@
 # environment
 #
 SHELL := /bin/bash
-APPNAME := app
+APPNAME := django-template
 CONTAINER_IMAGE_NAME_PROD := ${APPNAME}-prod
 PYTHON_VERSION := 3.12.1
 PYTHON_VENV := venv
