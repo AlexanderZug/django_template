@@ -65,8 +65,8 @@ run-dev:
 run-local:
 	@echo "executing target run-local"
 	# Run environment
-	docker compose down --volumes
-	docker compose up --build
+	@$ docker compose down --volumes
+	@$ docker compose up --build
 
 #
 # docker shell targets
