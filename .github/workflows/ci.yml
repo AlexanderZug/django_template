@@ -20,4 +20,6 @@ jobs:
         run: |
           poetry run pytest -v app/tests
       - name: Run mypy
-        run: poetry run mypy app
+        run: |
+          cd app
+          poetry run mypy .
