@@ -19,3 +19,5 @@ jobs:
       - name: Test with pytest
         run: |
           poetry run pytest -v app/tests
+      - name: Run mypy
+        run: poetry run mypy app
