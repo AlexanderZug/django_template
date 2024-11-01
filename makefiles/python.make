@@ -68,7 +68,7 @@ lint:
 
 mypy:
 	@echo "executing target mypy"
-	@mypy ${APPFOLDER}/
+	@cd ${APPFOLDER} && mypy .
 
 run-test:
 	@echo "executing target run-test"
