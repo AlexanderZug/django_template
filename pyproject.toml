@@ -58,10 +58,6 @@ exclude = [
 	"app/*/__init__.py",
 ]
 
-[[tool.mypy.overrides]]
-module = "api.base"
-ignore_missing_imports = true
-
 [tool.django-stubs]
 django_settings_module = "django_app.settings"
 

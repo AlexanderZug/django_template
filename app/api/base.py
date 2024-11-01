@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.urls import re_path
-from drf_yasg import openapi
-from drf_yasg.views import get_schema_view
+from drf_yasg import openapi  # type: ignore[import-untyped]
+from drf_yasg.views import get_schema_view  # type: ignore[import-untyped]
 from rest_framework import permissions
 
 schema_view = get_schema_view(
@@ -16,10 +16,6 @@ urlpatterns = [
         schema_view.without_ui(cache_timeout=0),
         name="schema",
     ),
-    re_path(
-        r"^$", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"
-    ),
-    re_path(
-        r"^redoc/$", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
-    ),
+    re_path(r"^$", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
+    re_path(r"^redoc/$", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
