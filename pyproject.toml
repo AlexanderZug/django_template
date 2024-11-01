@@ -59,11 +59,11 @@ exclude = [
 ]
 
 [[tool.mypy.overrides]]
-module = 'api.base'
+module = "app.api.base"
 ignore_missing_imports = true
 
 [tool.django-stubs]
-django_settings_module = "django_app.settings"
+django_settings_module = "app.django_app.settings"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "django_app.settings.settings_test"
