@@ -1,6 +1,6 @@
 asgiref==3.8.1 ; python_version >= "3.12" and python_version < "4.0"
 attrs==25.3.0 ; python_version >= "3.12" and python_version < "4.0"
-django==5.1.8 ; python_version >= "3.12" and python_version < "4.0"
+django==5.1.9 ; python_version >= "3.12" and python_version < "4.0"
 djangorestframework==3.16.0 ; python_version >= "3.12" and python_version < "4.0"
 drf-spectacular==0.28.0 ; python_version >= "3.12" and python_version < "4.0"
 drf-yasg==1.21.10 ; python_version >= "3.12" and python_version < "4.0"
