@@ -14,10 +14,10 @@ drf-spectacular = "^0.28.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.3.0"
-ruff = "^0.13.0"
-mypy = "^1.18.1"
+ruff = "^0.13.1"
+mypy = "^1.18.2"
 django-stubs = "^5.2.5"
-djangorestframework-stubs = "^3.16.2"
+djangorestframework-stubs = "^3.16.3"
 pytest-django = "^4.11.1"
 pytest-cov = "^7.0.0"
 
