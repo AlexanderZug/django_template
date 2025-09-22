@@ -3,6 +3,7 @@ name = "app"
 version = "0.1.0"
 description = "Tamplate for django project"
 authors = ["AlexanderZug <alexandertsygankov.unterwegs@gmail.com>"]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -11,8 +12,6 @@ djangorestframework = "^3.16.1"
 drf-yasg = "^1.21.10"
 python-dotenv = "^1.1.1"
 drf-spectacular = "^0.28.0"
-
-[tool.poetry.group.dev.dependencies]
 pre-commit = "^4.3.0"
 ruff = "^0.13.0"
 mypy = "^1.18.1"
