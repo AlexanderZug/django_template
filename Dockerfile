@@ -1,9 +1,8 @@
-FROM python:3.14.1-slim
-WORKDIR /app/
+FROM python:3.14.0rc3-slim-bookworm
+WORKDIR /app
 COPY uv.lock pyproject.toml /app/
-RUN pip install --upgrade pip \
-    && pip install uv \
-    && uv install --no-interaction --no-ansi
+ENV UV_PROJECT_ENVIRONMENT=/usr/local
+RUN pip install --upgrade pip && pip install uv && uv sync --locked
 COPY . /app
 RUN chown -R 1000:1000 /app
 EXPOSE 8000
