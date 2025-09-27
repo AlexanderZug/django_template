@@ -1,10 +1,9 @@
-FROM python:3.12.1-slim-bullseye
+FROM python:3.14.1-slim
 WORKDIR /app/
-COPY poetry.lock pyproject.toml /app/
+COPY uv.lock pyproject.toml /app/
 RUN pip install --upgrade pip \
-    && pip install poetry \
-    && poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
+    && pip install uv \
+    && uv install --no-interaction --no-ansi
 COPY . /app
 RUN chown -R 1000:1000 /app
 EXPOSE 8000

@@ -4,22 +4,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
       - name: Install Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install poetry
-          poetry install
+          python-version-file: ".python-version"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
+
       - name: Run Ruff
-        run: poetry run ruff check --output-format=github .
-      - name: Test with pytest
-        run: |
-          poetry run pytest -v app/tests
+        run: uv run ruff check --output-format=github .
+
+      - name: Run pytest
+        run: uv run pytest -v app/tests
+
       - name: Run mypy
         run: |
           cd app
-          poetry run mypy .
+          uv run mypy .

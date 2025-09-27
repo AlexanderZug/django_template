@@ -4,7 +4,7 @@
 SHELL := /bin/bash
 APPNAME := django-template
 CONTAINER_IMAGE_NAME_PROD := ${APPNAME}-prod
-PYTHON_VERSION := 3.12.1
+PYTHON_VERSION := 3.14.0
 PYTHON_VENV := venv
 APPFOLDER := app
 
@@ -37,7 +37,7 @@ help: help_python help_git help_docker_base
 	@echo ""
 
 #
-# configmaster targets
+# all targets
 #
 clean:
 	@find . -type d -name "__pycache__" -prune -exec rm -rf "{}" \;
