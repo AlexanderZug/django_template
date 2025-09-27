@@ -1,28 +1,27 @@
-[tool.poetry]
-name = "app"
+[project]
+name = "django-template-uv"
 version = "0.1.0"
-description = "Tamplate for django project"
-authors = ["AlexanderZug <alexandertsygankov.unterwegs@gmail.com>"]
-package-mode = false
+description = "Django Template (uv)"
+readme = "README.md"
+requires-python = ">=3.14.0"
+dependencies = [
+    "django>=5.2.6",
+    "djangorestframework>=3.16.1",
+    "drf-spectacular>=0.28.0",
+    "drf-yasg>=1.21.11",
+    "pre-commit>=4.3.0",
+    "python-dotenv>=1.1.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
-django = "^5.2.6"
-djangorestframework = "^3.16.1"
-drf-yasg = "^1.21.10"
-python-dotenv = "^1.1.1"
-drf-spectacular = "^0.28.0"
-pre-commit = "^4.3.0"
-ruff = "^0.13.0"
-mypy = "^1.18.1"
-django-stubs = "^5.2.5"
-djangorestframework-stubs = "^3.16.2"
-pytest-django = "^4.11.1"
-pytest-cov = "^7.0.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "django-stubs>=5.2.5",
+    "djangorestframework-stubs>=3.16.3",
+    "mypy>=1.18.2",
+    "pytest-cov>=7.0.0",
+    "pytest-django>=4.11.1",
+    "ruff>=0.13.2",
+]
 
 [tool.ruff]
 line-length = 120
@@ -49,6 +48,7 @@ exclude = [
 	"app/__init__.py",
 ]
 
+
 [tool.mypy]
 plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
 exclude = [
@@ -61,6 +61,6 @@ exclude = [
 django_settings_module = "django_app.settings"
 
 [tool.pytest.ini_options]
-django_settings_module = "django_app.settings.settings_test"
+DJANGO_SETTINGS_MODULE = "django_app.settings.settings_test"
 python_files = ["test_*.py", "*_test.py", "testing/python/*.py"]
 addopts = ["--cov=app"]
